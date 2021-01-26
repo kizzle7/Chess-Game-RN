@@ -12,6 +12,14 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.myapp.generated.BasePackageList;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
+
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
+
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
 import org.unimodules.adapters.react.ReactAdapterPackage;
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
@@ -42,6 +50,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       List<ReactPackage> packages = new PackageList(this).getPackages();
+      packages.add( new RNFirebaseAuthPackage());
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
       return packages;
     }
